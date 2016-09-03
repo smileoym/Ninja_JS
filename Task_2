@@ -16,3 +16,16 @@ var person = ["Pupkin", "Shenderovich", "Petrov", "Vasin", "Korotkov"];
 var cars = ["Saab", "Volvo", "BMW", "SKODA", "Volga"];
 var webBrowser = ["Firefox", "Opera", "Google Chrome", "Internet Explorer", "Seamonkey", "Yandex", "Safari"];
 var screenResolution = ["QVGA", "SIF (MPEG1 SIF)", "CIF (MPEG1 VideoCD)", "HVGA", "nHD", "VGA", "FWVGA"];
+
+/*Создайте цикл который будет выводить в консоль все значения массива (for и while).*/
+var cars = ["Saab", "Volvo", "BMW", "SKODA", "Volga"];
+for (var i = 0; i < cars.length; i++) {
+    alert(cars[i]);
+}
+
+var webBrowser = ["Firefox", "Opera", "Google Chrome", "Internet Explorer", "Seamonkey", "Yandex", "Safari"];
+var i = 0;
+while (i < webBrowser.length) {
+  alert(webBrowser[i]);
+  i++;
+}
