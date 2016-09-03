@@ -10,3 +10,9 @@ var user = {firstName:"Yurii", lastName:"Shenderovich", age:100, eyeColor:"blue"
 
 /*Придумайте еще 5 вариантов того что может быть записано как объект.*/
 car, person, rabbit, clothes, footwear, socks, scarf, balls, glasses
+
+/*Создайте массивы для фамилий, марок автомобилей, названий браузеров и разрешений экрана.*/
+var person = ["Pupkin", "Shenderovich", "Petrov", "Vasin", "Korotkov"];
+var cars = ["Saab", "Volvo", "BMW", "SKODA", "Volga"];
+var webBrowser = ["Firefox", "Opera", "Google Chrome", "Internet Explorer", "Seamonkey", "Yandex", "Safari"];
+var screenResolution = ["QVGA", "SIF (MPEG1 SIF)", "CIF (MPEG1 VideoCD)", "HVGA", "nHD", "VGA", "FWVGA"];
