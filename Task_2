@@ -55,3 +55,57 @@ var arr = [undefined, 23, true, false, {name: 'Yurii'}, null, "cars"];
               /*или такой вариант*/
 var obj = { name: 'Yurii' };
 var arr = [undefined, 23, true, false, obj, null, "cars"];
+
+/*Создайте цикл который будет выводить в консоль тип элемента массива (реализуйте проверку типов 
+	через if и через switch).*/
+	вариант 1
+var arr = [undefined, 23, true, false, {name: 'Yurii'}, null, "cars"];
+for (var i = 0; i < arr.length; i++) {
+    console.log(typeof arr[i]);
+}
+    вариант 2
+var cars = [undefined, 23, true, false, {name: 'Yurii'}, null, "cars"];
+for (var i = 0; i < cars.length; i++) {
+   if (typeof cars[i] == "undefined" || "number" || "boolean" || "string" || "object") {
+     console.log(typeof cars[i]);
+    }  
+} 
+
+    вариант 3
+    var cars = [undefined, 23, true, false, {name: 'Yurii'}, null, "cars"];
+    for(var i = 0; i < cars.length; i++) {
+
+    switch(typeof cars[i]) {
+        case 'undefined': 
+        console.log(typeof cars[0]);
+        break;  
+       
+        case 'number': 
+        console.log(typeof cars[1]);
+        break;  
+        
+        case 'boolean': 
+        console.log(typeof cars[2]);
+        break;  
+        
+        case 'boolean': 
+        console.log(typeof cars[3]);
+        break;  
+       
+        case 'object': 
+        console.log(typeof cars[4]);
+        break;  
+       
+        case 'object': 
+        console.log(typeof cars[5]);
+        break;  
+
+        case 'string': 
+        console.log(typeof cars[6]);
+        break; 
+        
+        default:
+        console.log('object');
+}
+  }
+
