@@ -49,3 +49,9 @@ while (n < 3) {
   x += 3;
 alert(x);
 }
+
+/*Создайте массив со значениями разных типов.*/
+var arr = [undefined, 23, true, false, {name: 'Yurii'}, null, "cars"];
+              /*или такой вариант*/
+var obj = { name: 'Yurii' };
+var arr = [undefined, 23, true, false, obj, null, "cars"];
