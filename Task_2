@@ -1,0 +1,12 @@
+Вы можете скидывать ссылки мне в личку, в личку Ниндзя Верстки, либо можете оставлять здесь. Мы будем отсматривать все.
+
+Task №2
+/*Подумайте какие свойства могут быть у объектов квадрат, квартира, товар, пользователь 
+и создайте эти объекты.*/
+var square = {perimeter:"P", diagonal:"D", radius:"R", area:"S"};
+var apartment = {owner: "Ivanov", address: "Odessa", area: 68};
+var article = {typePackaging: "cardboard", color: "turquoise", weight: 12, height: 165, width: 110};
+var user = {firstName:"Yurii", lastName:"Shenderovich", age:100, eyeColor:"blue"};
+
+/*Придумайте еще 5 вариантов того что может быть записано как объект.*/
+car, person, rabbit, clothes, footwear, socks, scarf, balls, glasses
