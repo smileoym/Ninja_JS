@@ -62,3 +62,24 @@ function areaRectan(a, b) {
   return result;
 }
 areaRectan();
+/*напишите функцию, получающую произвольное количество аргументов и проверяющую есть ли 
+среди них отрицательные числа. Если есть, то возвращать false, иначе true. 
+Если было передано не число, то возвращать undefined */
+
+function arg() {
+	var result = 0;
+   	for (var i = 0; i < arguments.length; i++) {
+   		if (typeof arguments[i] != 'number') {
+   			result = undefined;
+   			/*i = arguments.length;*/
+   		}
+   		else if (arguments[i] < 0) 
+   			result = false 
+   		else {
+   			/*i = arguments.length;*/
+   			result = true 
+   		} 
+   	}
+   	return result;
+   }
+   arg('test');
