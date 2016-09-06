@@ -44,3 +44,8 @@ function sum(a, b){
  		return '"' + str1 + str2 + '"';
 }
 	console.log(sum('false', 9))
+
+function sum(a, b){
+  	return '"' + String(a) + String(b) + '"';
+}
+	console.log(sum('false', 9))
