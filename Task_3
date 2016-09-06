@@ -22,3 +22,14 @@ var person = {
 for (var property in person){
     alert(person[property]);
 }
+/*выводит ключ и значение*/
+var person = {
+    firstName : 'John',
+    lastName  : 'Doe',
+    age       : 50,
+    eyeColor  : 'blue'
+};
+
+for (var property in person){
+    alert(property+':'+person[property]);
+}
