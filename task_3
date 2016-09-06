@@ -1,0 +1,12 @@
+/*создайте объект и напишите цикл вывода всех его свойств в виде "ключ: значение" */
+
+/*выводит ключ*/
+var person = {
+    firstName : 'John',
+    lastName  : 'Doe',
+    age       : 50,
+    eyeColor  : 'blue'
+};
+
+for (var property in person){
+    alert(property);
