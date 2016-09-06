@@ -49,3 +49,16 @@ function sum(a, b){
   	return '"' + String(a) + String(b) + '"';
 }
 	console.log(sum('false', 9))
+
+/*напишите функцию вычисления площади прямоугольника по длине 2х сторон так, чтобы если передан 
+1 аргумент возвращалась площадь квадрата*/
+
+function areaRectan(a, b) {
+   	if (arguments.length > 1) {
+ 	  var result = a * b; 
+      }else{
+ 	  var result = a * a; 
+  }
+  return result;
+}
+areaRectan();
