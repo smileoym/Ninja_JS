@@ -66,20 +66,23 @@ areaRectan();
 среди них отрицательные числа. Если есть, то возвращать false, иначе true. 
 Если было передано не число, то возвращать undefined */
 
+<script>
 function arg() {
 	var result = 0;
+	var count = 1;
    	for (var i = 0; i < arguments.length; i++) {
    		if (typeof arguments[i] != 'number') {
    			result = undefined;
-   			/*i = arguments.length;*/
+   			break;
    		}
-   		else if (arguments[i] < 0) 
-   			result = false 
+   		else if (arguments[i] > 0 && count != 0) 
+   			result = true; 
    		else {
-   			/*i = arguments.length;*/
-   			result = true 
+   			result = false; 
+   			count = 0;
    		} 
    	}
    	return result;
    }
    arg('test');
+</script> 	 
