@@ -166,3 +166,24 @@ function foo(arr){
 	}
 }
 foo(user);
+
+/*напишите рекурсивную функцию вывода чисел фибоначчи в консоль. аругментом функции должно быть 
+значение сколько чисел выводить*/
+
+function fib(num){
+	var result1 = 0;
+	var result2 = 1;
+	var count = 0;
+	function fib1(){
+		if(count != num){
+			console.log(result2);
+			var result3 = result1 + result2;
+			result1 = result2;
+			result2 = result3;
+			count++;
+			return fib1();
+		}
+	}
+	 return fib1();
+}
+fib(234);
