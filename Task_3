@@ -115,3 +115,20 @@ function foo(num, exp) {
 	return result;
 }
 	foo(2, 10);
+
+/*напишите рекурсивную функцию суммирующую все элементы переданного массива */
+var arr1 = [2,11,7,3,14];
+function foo(arr){
+	var result = 0;
+	var count = 0;
+	function foo1(arr){
+		if(arr.length != count) {
+			result += arr[count];
+			count += 1;
+			console.log(result);
+			return foo1(arr);
+		}
+	}
+	return foo1(arr1);
+};
+foo(arr1);
