@@ -132,3 +132,37 @@ function foo(arr){
 	return foo1(arr1);
 };
 foo(arr1);
+
+/*напишите функцию вывода всех свойств объекта в виде "ключ: значение" с учетом вложенных объектов 
+Пример объекта: 
+*/
+var user = { 
+	name: 'andrey', 
+	login: '111', 
+	password: '222', 
+	address: { 
+		city: 'Krasnodar', 
+			house: { 
+				flat: 99, 
+				floor: 4 
+			} 
+		} 
+	}
+
+function foo(arr){
+	var count = 0;
+	var obj = arr;
+	if(typeof obj == 'object'){
+		function foo1(obj){
+			for(var i in obj) {
+				if (typeof obj[i] == 'object') {
+					obj = obj[i];
+					foo1(obj);
+				} else console.log(i + ':' + obj[i]);
+			}
+
+		}
+	return foo1(obj);
+	}
+}
+foo(user);
