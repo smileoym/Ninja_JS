@@ -137,7 +137,7 @@ var source = [22, 10, 16, 10, 87, -24, 2, 32, 10, -2, 14, 0, -1];
 function sumArray(arr, i){
 	i = i || 0;
 
-	if(i == source.length - 1) {
+	if(i == arr.length - 1) {
 			return arr[i];
 		} else {
 			return arr[i] + sumArray(arr, i + 1);
