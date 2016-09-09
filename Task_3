@@ -167,6 +167,30 @@ function foo(arr){
 }
 foo(user);
 
+/*  NINJA */
+var user = { 
+	name: 'andrey', 
+	login: '111', 
+	password: '222', 
+	address: { 
+		city: 'Krasnodar', 
+			house: { 
+				flat: 99, 
+				floor: 4 
+			} 
+		} 
+	}
+
+function props(obj){
+	for(var propertyName in obj){
+		if(typeof obj[propertyName] == 'object') {
+			props(obj[propertyName]);
+		} else { 
+			console.log(propertyName + ': ' + obj[propertyName]);
+		}
+	}
+}
+props(user);
 /*напишите рекурсивную функцию вывода чисел фибоначчи в консоль. аругментом функции должно быть 
 значение сколько чисел выводить*/
 
