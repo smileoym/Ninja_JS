@@ -104,3 +104,14 @@ var arr1 = ['Yurii', 9, 'test'];
 var arr2 = ['Yurii', 9, 'test'];
 args(arr1, arr2);
 </script>
+
+/*напишите функцию возведения в степень, не используя рекурсию */
+	
+function foo(num, exp) {
+	var result = num;
+	for(var i = 0; i < exp-1; i++){
+		result *=  num;
+	}
+	return result;
+}
+	foo(2, 10);
