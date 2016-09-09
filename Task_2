@@ -148,3 +148,40 @@ var points = [2,11,7,3,14]
   }
 
 console.log(points);
+
+/*Решение Ниндзя(Алесик)*/
+var source = [22, 10, 16, 10, 87, -24, 2, 32, 10, -2, 14, 0, -1],
+	target = [],
+	minIndex = 0,
+	substr = null;
+
+for(var i = 0; i < source.length; i++) {
+	if(source[i] < source[minIndex]) {
+		minIndex = i;
+	}
+}
+
+target[0] = source[minIndex];
+source[minIndex] = null;
+
+for(i = 0; i < source.length - 1; i++){
+
+	substr = null;
+
+for(var j = 0; j < source.length; j++){
+	if(source[j] == null) {
+		continue;
+	}
+
+
+	if(substr == null || source[j] - target[0] < substr) {
+		substr = source[j] - target[0];
+		minIndex = j;
+	}
+}
+
+target[i + 1] = source[minIndex];
+source[minIndex] = null;
+}
+
+console.log(target);
