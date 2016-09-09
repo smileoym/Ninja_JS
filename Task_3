@@ -85,4 +85,22 @@ function arg() {
    	return result;
    }
    arg('test');
-</script> 	 
+</script> 
+
+/* напишите функцию, получающую произвольное количество аргументов - массивов и объединяющую 
+их в один массив. В функции должна быть проверка на тип аргумента и если это не массив, то переходить 
+с следующему аргументу */
+</script>
+function args() {
+	var result = [];
+	for (var i = 0; i < arguments.length; i++) {
+		if (typeof arguments[i] == 'object') {
+			result = result.concat(arguments[i]);
+		}
+	}
+	return result;
+}
+var arr1 = ['Yurii', 9, 'test'];
+var arr2 = ['Yurii', 9, 'test'];
+args(arr1, arr2);
+</script>
