@@ -132,6 +132,19 @@ function foo(arr){
 	return foo1(arr1);
 };
 foo(arr1);
+                                      /*НИНДЗЯ*/
+var source = [22, 10, 16, 10, 87, -24, 2, 32, 10, -2, 14, 0, -1];
+function sumArray(arr, i){
+	i = i || 0;
+
+	if(i == source.length - 1) {
+			return arr[i];
+		} else {
+			return arr[i] + sumArray(arr, i + 1);
+		}
+	}
+console.log(sumArray(source));
+/*console.log(sumArray(source, 1));   */ 
 
 /*напишите функцию вывода всех свойств объекта в виде "ключ: значение" с учетом вложенных объектов 
 Пример объекта: 
