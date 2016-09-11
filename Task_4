@@ -77,3 +77,28 @@ function showDay() {
 	}
 }
 showDay();
+
+/*напишите модуль - математическую библиотеку, которая будет выполнять простейшие математические 
+операции. доступ к функциям из глобального скрипта после подключения библиотеки - myMath.add(2, 3) 
+myMath.multiply(5, 6)*/
+
+var myMath = (function(){
+	return {
+		add: function(a, b) {
+			return a + b;
+		},
+		multiply: function(a, b) {
+			return a * b;
+		},
+		subtraction: function(a, b) {
+			return a - b;
+		},
+		division: function(a, b) {
+			return a / b;
+		}
+	}
+})(); 
+console.log(myMath.add(16,9));
+console.log(myMath.multiply(16,9));
+console.log(myMath.subtraction(16,9));
+console.log(myMath.division(16,9));
