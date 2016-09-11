@@ -1,1 +1,34 @@
 
+/*TASK 4*/
+
+/*напишите функцию клонирования объектов, которая первым аргументом принимает объект - 
+образец с которого будут делаться клоны, а вторым параметром необходимое кол-во клонов. 
+второй параметр необязательный. если второй аргумент не передан или равен 1, 
+функция должна возвращать объект-клон, если больше чем 1 то массив объектов-клонов*/
+ 
+function nameClone(a) {
+	var cln = {};
+	var arrCln = [];
+	if(typeof a == 'object' &&  a instanceof Array != true) {
+		for (var key in a) {
+			cln[key] = a[key];
+		}
+	};
+	if(arguments.length > 1 && a instanceof Array != true) {
+		for(var i = 0; i < arguments[1]; i++) {
+		 	arrCln.push(cln);
+		}
+	};
+	if(typeof a == 'object' &&  a instanceof Array != true)
+		return arguments.length > 1? arrCln : cln;
+}
+
+var user = {
+  name: "Вася",
+  age: 30
+};
+var userArr = [1, 2, 3, 'clonerman'];
+
+console.log(nameClone(user));
+console.log(nameClone(user, 7));
+console.log(nameClone(userArr, 7));
