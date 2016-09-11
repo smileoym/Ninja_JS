@@ -32,3 +32,48 @@ var userArr = [1, 2, 3, 'clonerman'];
 console.log(nameClone(user));
 console.log(nameClone(user, 7));
 console.log(nameClone(userArr, 7));
+
+/*напишите функцию которая принимает дату от пользователя (prompt) в формате 01.01.2001 и 
+вычисляет сколько дней прошло/осталось до введенной даты. реализуйте проверку на валидность 
+даты и в случае некорректной даты, функция должна повторно ее запрашивать. вывод функции - 
+текст наподобии "до 01.01.2017 осталось 150 дней" или "с 01.01.2001 прошло 2753 дней" во 
+всплывающем окне (alert).
+** необязательное задание - организовать вывод слова "дней" в правильном склонении (1 день, 2 дня, 
+	8 дней итд.)*/
+
+
+	function bonus(day){
+		if(day == 1 )
+			return ' день'
+		else if( day < 5)
+			return ' дня'
+		else return ' дней';
+	};
+
+	function nul(date) {
+		return date > 9 ? date : '0' + date;
+	};
+	
+function showDay() {
+	var xxx = prompt();
+	var arrDate = xxx.split('.');
+	var date = arrDate[2] + '.' + arrDate[1] + '.' + arrDate[0];
+	var newDate = new Date(date);
+	var secTime = new Date().getSeconds() * 1000;
+	var hourTime = new Date().getHours() * 1000 * 60 * 60;
+	var milTime = new Date().getMinutes() * 1000 * 60;
+	var hours = new Date();
+	var time = +new Date(newDate);
+	var totalMSec = (+new Date());
+	var result =  time - totalMSec;
+	var nowDate = nul(new Date().getDate() )+ '.' + nul((new Date().getMonth()+1)) + '.' + new Date().getFullYear(); 
+	if(Math.sign(result) == -1) {
+		var day = Math.abs(Math.round((result + (secTime + hourTime + milTime))/(24 * 60 * 60 *1000)));
+		console.log('дo ' + nowDate + ' осталось ' + day + bonus(day))
+	}
+	if(Math.sign(result) == 1) {
+		var day = Math.round((result + (secTime + hourTime + milTime))/(24 * 60 * 60 *1000));
+		console.log('дo ' + xxx + ' прошло ' + day + bonus(day))
+	}
+}
+showDay();
