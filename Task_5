@@ -96,3 +96,66 @@ var cart = new Cart;
 cart.addProduct(Product.createEmpty());
 /*cart.addProduct({name: 'test'});*/
 </script>
+
+/*напишите метод getProductCount([наименование товара]), возвращающий кол-во товара в корзине*/
+<script>
+var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index];
+	};
+
+	this.addProduct = function (product) {
+		if(!validateProduct(product)) {
+			console.error('Wrong product');
+		}
+
+		var item = getProductByName(product.name)
+		
+		if(item) {
+			item.count++;
+		} else {
+			products.push({obj: product, count: 1});
+		}
+	};
+
+	function getProductByName(productName) {
+		for(var i = 0; i < products.length; i++) {
+			if(products[i].obj.name == productName) {
+				return products[i];
+			}
+		}
+
+	}
+
+	function validateProduct(product) {
+		return product.name != undefined && product.price != undefined;
+			
+	}
+};
+
+function Product() {
+
+}
+
+Product.createEmpty = function() {
+	var product = new Product;
+	product.price = 100;
+	product.name = 'Empty';
+	return product; 
+};
+
+Product.createFromData = function(data) {
+	var product = new Product;
+	product.price = data.price;
+	product.name = data.name;
+	return product; 
+};
+var cart = new Cart;
+
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+</script>
