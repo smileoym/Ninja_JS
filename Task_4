@@ -6,21 +6,24 @@
 второй параметр необязательный. если второй аргумент не передан или равен 1, 
 функция должна возвращать объект-клон, если больше чем 1 то массив объектов-клонов*/
  
+<script>
 function nameClone(a) {
-	var cln = {};
-	var arrCln = [];
 	if(typeof a == 'object' &&  a instanceof Array != true) {
+		var arrCln = [];
+		var cln = {};
 		for (var key in a) {
 			cln[key] = a[key];
-		}
-	};
-	if(arguments.length > 1 && a instanceof Array != true) {
-		for(var i = 0; i < arguments[1]; i++) {
-		 	arrCln.push(cln);
-		}
-	};
-	if(typeof a == 'object' &&  a instanceof Array != true)
+		};	
+		if(arguments.length > 1 ) {
+			for(var i = 0; i < arguments[1]; i++) {
+				for (var key in a) {
+					cln[key] = a[key];
+				};
+		 		arrCln.push(cln); 
+			}
+		};
 		return arguments.length > 1? arrCln : cln;
+	}
 }
 
 var user = {
@@ -32,6 +35,7 @@ var userArr = [1, 2, 3, 'clonerman'];
 console.log(nameClone(user));
 console.log(nameClone(user, 7));
 console.log(nameClone(userArr, 7));
+</script>
 
 /*напишите функцию которая принимает дату от пользователя (prompt) в формате 01.01.2001 и 
 вычисляет сколько дней прошло/осталось до введенной даты. реализуйте проверку на валидность 
