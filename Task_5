@@ -51,3 +51,48 @@ var cart = new Cart;
 
 cart.addProduct(Product.createEmpty());
 </script>
+
+/*напишите внутренний метод корзины валидирующий товары. у них обязаны быть непустые свойства наименование,
+ цена. и сделайте валидацию товаров при добавлении */
+<script>
+ var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index];
+	};
+
+	this.addProduct = function (product) {
+		if(!validateProduct(product)) {
+			console.error('Wrong product');
+		}
+		products.push(product);
+	};
+
+	function validateProduct(product) {
+		return product.name != undefined && product.price != undefined;
+			
+	}
+};
+
+function Product() {
+
+}
+
+Product.createEmpty = function() {
+	var product = new Product;
+	product.price = 100;
+	product.name = 'Empty';
+	return product; 
+};
+
+Product.createFromData = function(data) {
+	var product = new Product;
+	product.price = data.price;
+	product.name = data.name;
+	return product; 
+};
+var cart = new Cart;
+cart.addProduct(Product.createEmpty());
+/*cart.addProduct({name: 'test'});*/
+</script>
