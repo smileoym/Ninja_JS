@@ -1,0 +1,16 @@
+/*создайте объект - корзину товаров, позволяющую хранить массив товаров. 
+доступ к массиву должен быть только через методы getProduct([индекс массива]) и addProduct([товар]). */
+
+var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index];
+	};
+
+	this.addProduct = function (product) {
+		products.push(product);
+	}
+};
+
+var cart = new Cart;
