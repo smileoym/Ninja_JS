@@ -45,7 +45,7 @@ console.log(nameClone(userArr, 7));
 ** необязательное задание - организовать вывод слова "дней" в правильном склонении (1 день, 2 дня, 
 	8 дней итд.)*/
 
-
+<script>
 	function bonus(day){
 		if(day == 1 )
 			return ' день'
@@ -57,10 +57,63 @@ console.log(nameClone(userArr, 7));
 	function nul(date) {
 		return date > 9 ? date : '0' + date;
 	};
-	
+
 function showDay() {
 	var xxx = prompt();
+	xxx? xxx: '0.0.0';
 	var arrDate = xxx.split('.');
+	function foo() {
+		var result = [];
+		var sum = true;
+		var month = {
+			1: 32,
+			2: function() {
+				var count = 29;
+				for(i = 0; i < Number(arrDate[2])+10; i = i + 4) {
+					if(i == Number(arrDate[2]))
+						count = 30;
+				}
+				return count;				
+			},
+			3: 32,
+			4: 31,
+			5: 32,
+			6: 31,
+			7: 32,
+			8: 32,
+			9: 31,
+			10: 32,
+			11: 31,
+			12: 32,
+		};			
+		if(Number(arrDate[1]) < 12) 
+			result[0] = true
+		else result[0] = false;
+		if(arrDate.length == 3)
+			result[1] = true
+		else result[1] = false;
+		if (Number(arrDate[2]) > 0)
+			result[2] = true
+		else result[2] = false;
+		if(Number(arrDate[1]) == 2){
+			if(Number(arrDate[0]) < month[Number(arrDate[1])]())
+				result[3] = true
+			else result[3] = false;
+		} else {
+			if(Number(arrDate[0]) < month[Number(arrDate[1])])
+				result[3] = true
+			else result[3] = false;
+		}
+		for(var i = 0; i < result.length; i++){
+			if(result[i] != true)
+				sum = false;
+		};
+		return sum;
+	}
+	foo();
+	if(foo() != true){
+		showDay();		
+	}
 	var date = arrDate[2] + '.' + arrDate[1] + '.' + arrDate[0];
 	var newDate = new Date(date);
 	var secTime = new Date().getSeconds() * 1000;
@@ -73,14 +126,15 @@ function showDay() {
 	var nowDate = nul(new Date().getDate() )+ '.' + nul((new Date().getMonth()+1)) + '.' + new Date().getFullYear(); 
 	if(Math.sign(result) == -1) {
 		var day = Math.abs(Math.round((result + (secTime + hourTime + milTime))/(24 * 60 * 60 *1000)));
-		console.log('дo ' + nowDate + ' осталось ' + day + bonus(day))
+		alert('дo ' + nowDate + ' прошло ' + day + bonus(day))
 	}
 	if(Math.sign(result) == 1) {
 		var day = Math.round((result + (secTime + hourTime + milTime))/(24 * 60 * 60 *1000));
-		console.log('дo ' + xxx + ' прошло ' + day + bonus(day))
+		alert('дo ' + xxx + ' осталось ' + day + bonus(day))
 	}
 }
 showDay();
+</script>
 
 /*напишите модуль - математическую библиотеку, которая будет выполнять простейшие математические 
 операции. доступ к функциям из глобального скрипта после подключения библиотеки - myMath.add(2, 3) 
