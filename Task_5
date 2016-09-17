@@ -1,6 +1,6 @@
 /*создайте объект - корзину товаров, позволяющую хранить массив товаров. 
 доступ к массиву должен быть только через методы getProduct([индекс массива]) и addProduct([товар]). */
-
+<script>
 var Cart = function() {
 	var products = [];
 
@@ -14,3 +14,40 @@ var Cart = function() {
 };
 
 var cart = new Cart;
+</script>
+
+/*напишите конструктор (класс) товара с фабричными методами создания пустого товара и из данных*/
+<script>
+var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index];
+	};
+
+	this.addProduct = function (product) {
+		products.push(product);
+	}
+};
+
+function Product() {
+
+}
+
+Product.createEmpty = function() {
+	var product = new Product;
+	product.price = 100;
+	product.name = 'Empty';
+	return product; 
+};
+
+Product.createFromData = function(data) {
+	var product = new Product;
+	product.price = data.price;
+	product.name = data.name;
+	return product; 
+};
+var cart = new Cart;
+
+cart.addProduct(Product.createEmpty());
+</script>
