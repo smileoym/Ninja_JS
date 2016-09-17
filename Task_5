@@ -159,3 +159,105 @@ cart.addProduct(Product.createEmpty());
 cart.addProduct(Product.createEmpty());
 cart.addProduct(Product.createEmpty());
 </script>
+
+/*создайте метод получения скидки по товару getProductDiscount([наименование товара]). условия скидки - 
+если кол-во этого товара в корзине больше чем 3 то скидка 5%, а если больше 5 то 10%. если в функцию 
+не было передано наименование товара, то она должна возвращать общую скидку товаров в корзине. */
+<script>
+var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index].obj;
+	};
+
+	this.addProduct = function (product) {
+		if(!validateProduct(product)) {
+			console.error('Wrong product');
+		}
+
+		var item = getProductByName(product.name)
+		
+		if(item) {
+			item.count++;
+		} else {
+			products.push({obj: product, count: 1});
+		}
+	};
+
+	this.getProductDiscount = function (productName) {
+		if(productName) {
+			//возвращаем скидку по одному товару
+			var item = getProductByName(productName);
+				
+			return getDiscount(item);	
+		} else {
+			//возвращаем скидку по всей корзине
+			var sum = 0;
+			for(var i = 0; i < products.length; i++) {
+
+			}
+		}
+	};
+
+	function getDiscount(product) {
+		var count = product.count;
+
+		if(count > 5) {
+			return product.obj.price * 10 / 100 * count;
+		} else if(count > 3) {
+			return product.obj.price * 5 / 100 * count;
+		} else {
+			return 0;
+		}
+	}
+
+	function getProductByName(productName) {
+		for(var i = 0; i < products.length; i++) {
+			if(products[i].obj.name == productName) {
+				return products[i];
+			}
+		}
+
+	}
+
+	function validateProduct(product) {
+		return product.name != undefined && product.price != undefined;
+			
+	}
+};
+
+function Product() {
+
+}
+
+Product.createEmpty = function() {
+	var product = new Product;
+	product.price = 100;
+	product.name = 'Empty';
+	return product; 
+};
+
+Product.createFromData = function(data) {
+	var product = new Product;
+	product.price = data.price;
+	product.name = data.name;
+	return product; 
+};
+var cart = new Cart;
+
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createFromData({name: 'tv', price: 800}));
+cart.addProduct(Product.createFromData({name: 'tv', price: 800}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+
+alert(cart.getProductDiscount());
+<script>
