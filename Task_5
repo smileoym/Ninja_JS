@@ -261,3 +261,116 @@ cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
 
 alert(cart.getProductDiscount());
 <script>
+
+/*напишите метод получения цены товаров с учетом скидки getProductPrice([наименование товара]) */
+<script>
+var Cart = function() {
+	var products = [];
+
+	this.getProduct = function (index) {
+		return products[index].obj;
+	};
+
+
+
+
+	this.addProduct = function (product) {
+		if(!validateProduct(product)) {
+			console.error('Wrong product');
+		}
+
+		var item = getProductByName(product.name)
+		
+		if(item) {
+			item.count++;
+		} else {
+			products.push({obj: product, count: 1});
+		}
+	};
+
+
+this.getProductPrice = function(productName) {
+	var item = getProductByName(productName),
+		discount = getDiscount(item) / item.count;
+
+	return item.obj.price - discount;
+};
+
+	this.getProductDiscount = function (productName) {
+		if(productName) {
+			//возвращаем скидку по одному товару
+			var item = getProductByName(productName);
+				
+			return getDiscount(item);	
+		} else {
+			//возвращаем скидку по всей корзине
+			var sum = 0;
+			for(var i = 0; i < products.length; i++) {
+
+			}
+		}
+	};
+
+	function getDiscount(item) {
+		var count = item.count;
+
+		if(count > 5) {
+			return item.obj.price * 10 / 100 * count;
+		} else if(count > 3) {
+			return item.obj.price * 5 / 100 * count;
+		} else {
+			return 0;
+		}
+	}
+
+	function getProductByName(productName) {
+		for(var i = 0; i < products.length; i++) {
+			if(products[i].obj.name == productName) {
+				return products[i];
+			}
+		}
+
+	}
+
+	function validateProduct(product) {
+		return product.name != undefined && product.price != undefined;
+			
+	}
+};
+
+function Product() {
+
+}
+
+Product.createEmpty = function() {
+	var product = new Product;
+	product.price = 100;
+	product.name = 'Empty';
+	return product; 
+};
+
+Product.createFromData = function(data) {
+	var product = new Product;
+	product.price = data.price;
+	product.name = data.name;
+	return product; 
+};
+var cart = new Cart;
+
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createEmpty());
+cart.addProduct(Product.createFromData({name: 'tv', price: 800}));
+cart.addProduct(Product.createFromData({name: 'tv', price: 800}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+cart.addProduct(Product.createFromData({name: 'phone', price: 300}));
+
+alert(cart.getProductPrice('phone'));
+alert(cart.getProductPrice('tv'));
+alert(cart.getProductPrice('Empty'));
+</script>
